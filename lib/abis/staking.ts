@@ -1,1176 +1,1952 @@
 const ABI = [
   {
-    inputs: [
+    "type": "constructor",
+    "name": "",
+    "inputs": [
       {
-        internalType: "address",
-        name: "_apeCoinContractAddress",
-        type: "address",
+        "type": "address",
+        "name": "_NfteTokenContractAddress",
+        "internalType": "address"
       },
       {
-        internalType: "address",
-        name: "_baycContractAddress",
-        type: "address",
+        "type": "address",
+        "name": "_EARTHLINGSContractAddress",
+        "internalType": "address"
       },
       {
-        internalType: "address",
-        name: "_maycContractAddress",
-        type: "address",
+        "type": "address",
+        "name": "_ROBOROVERSContractAddress",
+        "internalType": "address"
       },
       {
-        internalType: "address",
-        name: "_bakcContractAddress",
-        type: "address",
-      },
+        "type": "address",
+        "name": "_NFW3CContractAddress",
+        "internalType": "address"
+      }
     ],
-    stateMutability: "nonpayable",
-    type: "constructor",
+    "outputs": [],
+    "stateMutability": "nonpayable"
   },
-  { inputs: [], name: "BAKCAlreadyPaired", type: "error" },
-  { inputs: [], name: "BAKCNotOwnedOrPaired", type: "error" },
-  { inputs: [], name: "CallerNotOwner", type: "error" },
-  { inputs: [], name: "DepositMoreThanOneAPE", type: "error" },
-  { inputs: [], name: "EndNotWholeHour", type: "error" },
-  { inputs: [], name: "ExceededCapAmount", type: "error" },
-  { inputs: [], name: "ExceededStakedAmount", type: "error" },
-  { inputs: [], name: "InvalidPoolId", type: "error" },
-  { inputs: [], name: "MainTokenNotOwnedOrPaired", type: "error" },
-  { inputs: [], name: "NeitherTokenInPairOwnedByCaller", type: "error" },
-  { inputs: [], name: "NotOwnerOfBAKC", type: "error" },
-  { inputs: [], name: "NotOwnerOfMain", type: "error" },
-  { inputs: [], name: "ProvidedTokensNotPaired", type: "error" },
-  { inputs: [], name: "SplitPairCantPartiallyWithdraw", type: "error" },
-  { inputs: [], name: "StartMustBeGreaterThanEnd", type: "error" },
-  { inputs: [], name: "StartMustEqualLastEnd", type: "error" },
-  { inputs: [], name: "StartNotWholeHour", type: "error" },
-  { inputs: [], name: "UncommitWrongParameters", type: "error" },
   {
-    anonymous: false,
-    inputs: [
-      { indexed: true, internalType: "address", name: "user", type: "address" },
+    "type": "error",
+    "name": "CallerNotOwner",
+    "inputs": [],
+    "outputs": []
+  },
+  {
+    "type": "error",
+    "name": "DepositMoreThanOneNFTE",
+    "inputs": [],
+    "outputs": []
+  },
+  {
+    "type": "error",
+    "name": "EndNotWholeHour",
+    "inputs": [],
+    "outputs": []
+  },
+  {
+    "type": "error",
+    "name": "ExceededCapAmount",
+    "inputs": [],
+    "outputs": []
+  },
+  {
+    "type": "error",
+    "name": "ExceededStakedAmount",
+    "inputs": [],
+    "outputs": []
+  },
+  {
+    "type": "error",
+    "name": "InvalidPoolId",
+    "inputs": [],
+    "outputs": []
+  },
+  {
+    "type": "error",
+    "name": "MainTokenNotOwnedOrPaired",
+    "inputs": [],
+    "outputs": []
+  },
+  {
+    "type": "error",
+    "name": "NFW3CAlreadyPaired",
+    "inputs": [],
+    "outputs": []
+  },
+  {
+    "type": "error",
+    "name": "NFW3CNotOwnedOrPaired",
+    "inputs": [],
+    "outputs": []
+  },
+  {
+    "type": "error",
+    "name": "NeitherTokenInPairOwnedByCaller",
+    "inputs": [],
+    "outputs": []
+  },
+  {
+    "type": "error",
+    "name": "NotOwnerOfMain",
+    "inputs": [],
+    "outputs": []
+  },
+  {
+    "type": "error",
+    "name": "NotOwnerOfNFW3C",
+    "inputs": [],
+    "outputs": []
+  },
+  {
+    "type": "error",
+    "name": "ProvidedTokensNotPaired",
+    "inputs": [],
+    "outputs": []
+  },
+  {
+    "type": "error",
+    "name": "SplitPairCantPartiallyWithdraw",
+    "inputs": [],
+    "outputs": []
+  },
+  {
+    "type": "error",
+    "name": "StartMustBeGreaterThanEnd",
+    "inputs": [],
+    "outputs": []
+  },
+  {
+    "type": "error",
+    "name": "StartMustEqualLastEnd",
+    "inputs": [],
+    "outputs": []
+  },
+  {
+    "type": "error",
+    "name": "StartNotWholeHour",
+    "inputs": [],
+    "outputs": []
+  },
+  {
+    "type": "error",
+    "name": "UncommitWrongParameters",
+    "inputs": [],
+    "outputs": []
+  },
+  {
+    "type": "event",
+    "name": "ClaimRewards",
+    "inputs": [
       {
-        indexed: false,
-        internalType: "uint256",
-        name: "amount",
-        type: "uint256",
+        "type": "address",
+        "name": "user",
+        "indexed": true,
+        "internalType": "address"
       },
       {
-        indexed: false,
-        internalType: "address",
-        name: "recipient",
-        type: "address",
+        "type": "uint256",
+        "name": "amount",
+        "indexed": false,
+        "internalType": "uint256"
       },
+      {
+        "type": "address",
+        "name": "recipient",
+        "indexed": false,
+        "internalType": "address"
+      }
     ],
-    name: "ClaimRewards",
-    type: "event",
+    "outputs": [],
+    "anonymous": false
   },
   {
-    anonymous: false,
-    inputs: [
-      { indexed: true, internalType: "address", name: "user", type: "address" },
+    "type": "event",
+    "name": "ClaimRewardsNft",
+    "inputs": [
       {
-        indexed: true,
-        internalType: "uint256",
-        name: "poolId",
-        type: "uint256",
+        "type": "address",
+        "name": "user",
+        "indexed": true,
+        "internalType": "address"
       },
       {
-        indexed: false,
-        internalType: "uint256",
-        name: "amount",
-        type: "uint256",
+        "type": "uint256",
+        "name": "poolId",
+        "indexed": true,
+        "internalType": "uint256"
       },
       {
-        indexed: false,
-        internalType: "uint256",
-        name: "tokenId",
-        type: "uint256",
+        "type": "uint256",
+        "name": "amount",
+        "indexed": false,
+        "internalType": "uint256"
       },
+      {
+        "type": "uint256",
+        "name": "tokenId",
+        "indexed": false,
+        "internalType": "uint256"
+      }
     ],
-    name: "ClaimRewardsNft",
-    type: "event",
+    "outputs": [],
+    "anonymous": false
   },
   {
-    anonymous: false,
-    inputs: [
-      { indexed: true, internalType: "address", name: "user", type: "address" },
+    "type": "event",
+    "name": "ClaimRewardsPairNft",
+    "inputs": [
       {
-        indexed: false,
-        internalType: "uint256",
-        name: "amount",
-        type: "uint256",
+        "type": "address",
+        "name": "user",
+        "indexed": true,
+        "internalType": "address"
       },
       {
-        indexed: false,
-        internalType: "uint256",
-        name: "mainTypePoolId",
-        type: "uint256",
+        "type": "uint256",
+        "name": "amount",
+        "indexed": false,
+        "internalType": "uint256"
       },
       {
-        indexed: false,
-        internalType: "uint256",
-        name: "mainTokenId",
-        type: "uint256",
+        "type": "uint256",
+        "name": "mainTypePoolId",
+        "indexed": false,
+        "internalType": "uint256"
       },
       {
-        indexed: false,
-        internalType: "uint256",
-        name: "bakcTokenId",
-        type: "uint256",
+        "type": "uint256",
+        "name": "mainTokenId",
+        "indexed": false,
+        "internalType": "uint256"
       },
+      {
+        "type": "uint256",
+        "name": "NFW3CTokenId",
+        "indexed": false,
+        "internalType": "uint256"
+      }
     ],
-    name: "ClaimRewardsPairNft",
-    type: "event",
+    "outputs": [],
+    "anonymous": false
   },
   {
-    anonymous: false,
-    inputs: [
-      { indexed: true, internalType: "address", name: "user", type: "address" },
+    "type": "event",
+    "name": "Deposit",
+    "inputs": [
       {
-        indexed: false,
-        internalType: "uint256",
-        name: "amount",
-        type: "uint256",
+        "type": "address",
+        "name": "user",
+        "indexed": true,
+        "internalType": "address"
       },
       {
-        indexed: false,
-        internalType: "address",
-        name: "recipient",
-        type: "address",
+        "type": "uint256",
+        "name": "amount",
+        "indexed": false,
+        "internalType": "uint256"
       },
+      {
+        "type": "address",
+        "name": "recipient",
+        "indexed": false,
+        "internalType": "address"
+      }
     ],
-    name: "Deposit",
-    type: "event",
+    "outputs": [],
+    "anonymous": false
   },
   {
-    anonymous: false,
-    inputs: [
-      { indexed: true, internalType: "address", name: "user", type: "address" },
+    "type": "event",
+    "name": "DepositNft",
+    "inputs": [
       {
-        indexed: true,
-        internalType: "uint256",
-        name: "poolId",
-        type: "uint256",
+        "type": "address",
+        "name": "user",
+        "indexed": true,
+        "internalType": "address"
       },
       {
-        indexed: false,
-        internalType: "uint256",
-        name: "amount",
-        type: "uint256",
+        "type": "uint256",
+        "name": "poolId",
+        "indexed": true,
+        "internalType": "uint256"
       },
       {
-        indexed: false,
-        internalType: "uint256",
-        name: "tokenId",
-        type: "uint256",
+        "type": "uint256",
+        "name": "amount",
+        "indexed": false,
+        "internalType": "uint256"
       },
+      {
+        "type": "uint256",
+        "name": "tokenId",
+        "indexed": false,
+        "internalType": "uint256"
+      }
     ],
-    name: "DepositNft",
-    type: "event",
+    "outputs": [],
+    "anonymous": false
   },
   {
-    anonymous: false,
-    inputs: [
-      { indexed: true, internalType: "address", name: "user", type: "address" },
+    "type": "event",
+    "name": "DepositPairNft",
+    "inputs": [
       {
-        indexed: false,
-        internalType: "uint256",
-        name: "amount",
-        type: "uint256",
+        "type": "address",
+        "name": "user",
+        "indexed": true,
+        "internalType": "address"
       },
       {
-        indexed: false,
-        internalType: "uint256",
-        name: "mainTypePoolId",
-        type: "uint256",
+        "type": "uint256",
+        "name": "amount",
+        "indexed": false,
+        "internalType": "uint256"
       },
       {
-        indexed: false,
-        internalType: "uint256",
-        name: "mainTokenId",
-        type: "uint256",
+        "type": "uint256",
+        "name": "mainTypePoolId",
+        "indexed": false,
+        "internalType": "uint256"
       },
       {
-        indexed: false,
-        internalType: "uint256",
-        name: "bakcTokenId",
-        type: "uint256",
+        "type": "uint256",
+        "name": "mainTokenId",
+        "indexed": false,
+        "internalType": "uint256"
       },
+      {
+        "type": "uint256",
+        "name": "NFW3CTokenId",
+        "indexed": false,
+        "internalType": "uint256"
+      }
     ],
-    name: "DepositPairNft",
-    type: "event",
+    "outputs": [],
+    "anonymous": false
   },
   {
-    anonymous: false,
-    inputs: [
+    "type": "event",
+    "name": "OwnershipTransferred",
+    "inputs": [
       {
-        indexed: true,
-        internalType: "address",
-        name: "previousOwner",
-        type: "address",
+        "type": "address",
+        "name": "previousOwner",
+        "indexed": true,
+        "internalType": "address"
       },
       {
-        indexed: true,
-        internalType: "address",
-        name: "newOwner",
-        type: "address",
-      },
+        "type": "address",
+        "name": "newOwner",
+        "indexed": true,
+        "internalType": "address"
+      }
     ],
-    name: "OwnershipTransferred",
-    type: "event",
+    "outputs": [],
+    "anonymous": false
   },
   {
-    anonymous: false,
-    inputs: [
+    "type": "event",
+    "name": "UpdatePool",
+    "inputs": [
       {
-        indexed: true,
-        internalType: "uint256",
-        name: "poolId",
-        type: "uint256",
+        "type": "uint256",
+        "name": "poolId",
+        "indexed": true,
+        "internalType": "uint256"
       },
       {
-        indexed: false,
-        internalType: "uint256",
-        name: "lastRewardedBlock",
-        type: "uint256",
+        "type": "uint256",
+        "name": "lastRewardedBlock",
+        "indexed": false,
+        "internalType": "uint256"
       },
       {
-        indexed: false,
-        internalType: "uint256",
-        name: "stakedAmount",
-        type: "uint256",
+        "type": "uint256",
+        "name": "stakedAmount",
+        "indexed": false,
+        "internalType": "uint256"
       },
       {
-        indexed: false,
-        internalType: "uint256",
-        name: "accumulatedRewardsPerShare",
-        type: "uint256",
-      },
+        "type": "uint256",
+        "name": "accumulatedRewardsPerShare",
+        "indexed": false,
+        "internalType": "uint256"
+      }
     ],
-    name: "UpdatePool",
-    type: "event",
+    "outputs": [],
+    "anonymous": false
   },
   {
-    anonymous: false,
-    inputs: [
-      { indexed: true, internalType: "address", name: "user", type: "address" },
+    "type": "event",
+    "name": "Withdraw",
+    "inputs": [
       {
-        indexed: false,
-        internalType: "uint256",
-        name: "amount",
-        type: "uint256",
+        "type": "address",
+        "name": "user",
+        "indexed": true,
+        "internalType": "address"
       },
       {
-        indexed: false,
-        internalType: "address",
-        name: "recipient",
-        type: "address",
+        "type": "uint256",
+        "name": "amount",
+        "indexed": false,
+        "internalType": "uint256"
       },
+      {
+        "type": "address",
+        "name": "recipient",
+        "indexed": false,
+        "internalType": "address"
+      }
     ],
-    name: "Withdraw",
-    type: "event",
+    "outputs": [],
+    "anonymous": false
   },
   {
-    anonymous: false,
-    inputs: [
-      { indexed: true, internalType: "address", name: "user", type: "address" },
+    "type": "event",
+    "name": "WithdrawNft",
+    "inputs": [
       {
-        indexed: true,
-        internalType: "uint256",
-        name: "poolId",
-        type: "uint256",
+        "type": "address",
+        "name": "user",
+        "indexed": true,
+        "internalType": "address"
       },
       {
-        indexed: false,
-        internalType: "uint256",
-        name: "amount",
-        type: "uint256",
+        "type": "uint256",
+        "name": "poolId",
+        "indexed": true,
+        "internalType": "uint256"
       },
       {
-        indexed: false,
-        internalType: "address",
-        name: "recipient",
-        type: "address",
+        "type": "uint256",
+        "name": "amount",
+        "indexed": false,
+        "internalType": "uint256"
       },
       {
-        indexed: false,
-        internalType: "uint256",
-        name: "tokenId",
-        type: "uint256",
+        "type": "address",
+        "name": "recipient",
+        "indexed": false,
+        "internalType": "address"
       },
+      {
+        "type": "uint256",
+        "name": "tokenId",
+        "indexed": false,
+        "internalType": "uint256"
+      }
     ],
-    name: "WithdrawNft",
-    type: "event",
+    "outputs": [],
+    "anonymous": false
   },
   {
-    anonymous: false,
-    inputs: [
-      { indexed: true, internalType: "address", name: "user", type: "address" },
+    "type": "event",
+    "name": "WithdrawPairNft",
+    "inputs": [
       {
-        indexed: false,
-        internalType: "uint256",
-        name: "amount",
-        type: "uint256",
+        "type": "address",
+        "name": "user",
+        "indexed": true,
+        "internalType": "address"
       },
       {
-        indexed: false,
-        internalType: "uint256",
-        name: "mainTypePoolId",
-        type: "uint256",
+        "type": "uint256",
+        "name": "amount",
+        "indexed": false,
+        "internalType": "uint256"
       },
       {
-        indexed: false,
-        internalType: "uint256",
-        name: "mainTokenId",
-        type: "uint256",
+        "type": "uint256",
+        "name": "mainTypePoolId",
+        "indexed": false,
+        "internalType": "uint256"
       },
       {
-        indexed: false,
-        internalType: "uint256",
-        name: "bakcTokenId",
-        type: "uint256",
-      },
-    ],
-    name: "WithdrawPairNft",
-    type: "event",
-  },
-  {
-    inputs: [
-      { internalType: "uint256", name: "_poolId", type: "uint256" },
-      { internalType: "uint256", name: "_amount", type: "uint256" },
-      { internalType: "uint256", name: "_startTimestamp", type: "uint256" },
-      { internalType: "uint256", name: "_endTimeStamp", type: "uint256" },
-      { internalType: "uint256", name: "_capPerPosition", type: "uint256" },
-    ],
-    name: "addTimeRange",
-    outputs: [],
-    stateMutability: "nonpayable",
-    type: "function",
-  },
-  {
-    inputs: [{ internalType: "address", name: "", type: "address" }],
-    name: "addressPosition",
-    outputs: [
-      { internalType: "uint256", name: "stakedAmount", type: "uint256" },
-      { internalType: "int256", name: "rewardsDebt", type: "int256" },
-    ],
-    stateMutability: "view",
-    type: "function",
-  },
-  {
-    inputs: [],
-    name: "apeCoin",
-    outputs: [{ internalType: "contract IERC20", name: "", type: "address" }],
-    stateMutability: "view",
-    type: "function",
-  },
-  {
-    inputs: [
-      { internalType: "uint256", name: "", type: "uint256" },
-      { internalType: "uint256", name: "", type: "uint256" },
-    ],
-    name: "bakcToMain",
-    outputs: [
-      { internalType: "uint248", name: "tokenId", type: "uint248" },
-      { internalType: "bool", name: "isPaired", type: "bool" },
-    ],
-    stateMutability: "view",
-    type: "function",
-  },
-  {
-    inputs: [{ internalType: "address", name: "_recipient", type: "address" }],
-    name: "claimApeCoin",
-    outputs: [],
-    stateMutability: "nonpayable",
-    type: "function",
-  },
-  {
-    inputs: [
-      {
-        components: [
-          { internalType: "uint128", name: "mainTokenId", type: "uint128" },
-          { internalType: "uint128", name: "bakcTokenId", type: "uint128" },
-        ],
-        internalType: "struct ApeCoinStaking.PairNft[]",
-        name: "_baycPairs",
-        type: "tuple[]",
+        "type": "uint256",
+        "name": "mainTokenId",
+        "indexed": false,
+        "internalType": "uint256"
       },
       {
-        components: [
-          { internalType: "uint128", name: "mainTokenId", type: "uint128" },
-          { internalType: "uint128", name: "bakcTokenId", type: "uint128" },
-        ],
-        internalType: "struct ApeCoinStaking.PairNft[]",
-        name: "_maycPairs",
-        type: "tuple[]",
-      },
-      { internalType: "address", name: "_recipient", type: "address" },
+        "type": "uint256",
+        "name": "NFW3CTokenId",
+        "indexed": false,
+        "internalType": "uint256"
+      }
     ],
-    name: "claimBAKC",
-    outputs: [],
-    stateMutability: "nonpayable",
-    type: "function",
+    "outputs": [],
+    "anonymous": false
   },
   {
-    inputs: [
-      { internalType: "uint256[]", name: "_nfts", type: "uint256[]" },
-      { internalType: "address", name: "_recipient", type: "address" },
-    ],
-    name: "claimBAYC",
-    outputs: [],
-    stateMutability: "nonpayable",
-    type: "function",
-  },
-  {
-    inputs: [
-      { internalType: "uint256[]", name: "_nfts", type: "uint256[]" },
-      { internalType: "address", name: "_recipient", type: "address" },
-    ],
-    name: "claimMAYC",
-    outputs: [],
-    stateMutability: "nonpayable",
-    type: "function",
-  },
-  {
-    inputs: [],
-    name: "claimSelfApeCoin",
-    outputs: [],
-    stateMutability: "nonpayable",
-    type: "function",
-  },
-  {
-    inputs: [
+    "type": "function",
+    "name": "NFW3CToMain",
+    "inputs": [
       {
-        components: [
-          { internalType: "uint128", name: "mainTokenId", type: "uint128" },
-          { internalType: "uint128", name: "bakcTokenId", type: "uint128" },
-        ],
-        internalType: "struct ApeCoinStaking.PairNft[]",
-        name: "_baycPairs",
-        type: "tuple[]",
+        "type": "uint256",
+        "name": "",
+        "internalType": "uint256"
       },
       {
-        components: [
-          { internalType: "uint128", name: "mainTokenId", type: "uint128" },
-          { internalType: "uint128", name: "bakcTokenId", type: "uint128" },
-        ],
-        internalType: "struct ApeCoinStaking.PairNft[]",
-        name: "_maycPairs",
-        type: "tuple[]",
-      },
+        "type": "uint256",
+        "name": "",
+        "internalType": "uint256"
+      }
     ],
-    name: "claimSelfBAKC",
-    outputs: [],
-    stateMutability: "nonpayable",
-    type: "function",
-  },
-  {
-    inputs: [{ internalType: "uint256[]", name: "_nfts", type: "uint256[]" }],
-    name: "claimSelfBAYC",
-    outputs: [],
-    stateMutability: "nonpayable",
-    type: "function",
-  },
-  {
-    inputs: [{ internalType: "uint256[]", name: "_nfts", type: "uint256[]" }],
-    name: "claimSelfMAYC",
-    outputs: [],
-    stateMutability: "nonpayable",
-    type: "function",
-  },
-  {
-    inputs: [
-      { internalType: "uint256", name: "_amount", type: "uint256" },
-      { internalType: "address", name: "_recipient", type: "address" },
-    ],
-    name: "depositApeCoin",
-    outputs: [],
-    stateMutability: "nonpayable",
-    type: "function",
-  },
-  {
-    inputs: [
+    "outputs": [
       {
-        components: [
-          { internalType: "uint32", name: "mainTokenId", type: "uint32" },
-          { internalType: "uint32", name: "bakcTokenId", type: "uint32" },
-          { internalType: "uint184", name: "amount", type: "uint184" },
-        ],
-        internalType: "struct ApeCoinStaking.PairNftDepositWithAmount[]",
-        name: "_baycPairs",
-        type: "tuple[]",
+        "type": "uint248",
+        "name": "tokenId",
+        "internalType": "uint248"
       },
       {
-        components: [
-          { internalType: "uint32", name: "mainTokenId", type: "uint32" },
-          { internalType: "uint32", name: "bakcTokenId", type: "uint32" },
-          { internalType: "uint184", name: "amount", type: "uint184" },
-        ],
-        internalType: "struct ApeCoinStaking.PairNftDepositWithAmount[]",
-        name: "_maycPairs",
-        type: "tuple[]",
-      },
+        "type": "bool",
+        "name": "isPaired",
+        "internalType": "bool"
+      }
     ],
-    name: "depositBAKC",
-    outputs: [],
-    stateMutability: "nonpayable",
-    type: "function",
+    "stateMutability": "view"
   },
   {
-    inputs: [
+    "type": "function",
+    "name": "NfteToken",
+    "inputs": [],
+    "outputs": [
       {
-        components: [
-          { internalType: "uint32", name: "tokenId", type: "uint32" },
-          { internalType: "uint224", name: "amount", type: "uint224" },
-        ],
-        internalType: "struct ApeCoinStaking.SingleNft[]",
-        name: "_nfts",
-        type: "tuple[]",
-      },
+        "type": "address",
+        "name": "",
+        "internalType": "contract IERC20"
+      }
     ],
-    name: "depositBAYC",
-    outputs: [],
-    stateMutability: "nonpayable",
-    type: "function",
+    "stateMutability": "view"
   },
   {
-    inputs: [
+    "type": "function",
+    "name": "addTimeRange",
+    "inputs": [
       {
-        components: [
-          { internalType: "uint32", name: "tokenId", type: "uint32" },
-          { internalType: "uint224", name: "amount", type: "uint224" },
-        ],
-        internalType: "struct ApeCoinStaking.SingleNft[]",
-        name: "_nfts",
-        type: "tuple[]",
+        "type": "uint256",
+        "name": "_poolId",
+        "internalType": "uint256"
       },
-    ],
-    name: "depositMAYC",
-    outputs: [],
-    stateMutability: "nonpayable",
-    type: "function",
-  },
-  {
-    inputs: [{ internalType: "uint256", name: "_amount", type: "uint256" }],
-    name: "depositSelfApeCoin",
-    outputs: [],
-    stateMutability: "nonpayable",
-    type: "function",
-  },
-  {
-    inputs: [{ internalType: "address", name: "_address", type: "address" }],
-    name: "getAllStakes",
-    outputs: [
       {
-        components: [
-          { internalType: "uint256", name: "poolId", type: "uint256" },
-          { internalType: "uint256", name: "tokenId", type: "uint256" },
-          { internalType: "uint256", name: "deposited", type: "uint256" },
-          { internalType: "uint256", name: "unclaimed", type: "uint256" },
-          { internalType: "uint256", name: "rewards24hr", type: "uint256" },
+        "type": "uint256",
+        "name": "_amount",
+        "internalType": "uint256"
+      },
+      {
+        "type": "uint256",
+        "name": "_startTimestamp",
+        "internalType": "uint256"
+      },
+      {
+        "type": "uint256",
+        "name": "_endTimeStamp",
+        "internalType": "uint256"
+      },
+      {
+        "type": "uint256",
+        "name": "_capPerPosition",
+        "internalType": "uint256"
+      }
+    ],
+    "outputs": [],
+    "stateMutability": "nonpayable"
+  },
+  {
+    "type": "function",
+    "name": "addressPosition",
+    "inputs": [
+      {
+        "type": "address",
+        "name": "",
+        "internalType": "address"
+      }
+    ],
+    "outputs": [
+      {
+        "type": "uint256",
+        "name": "stakedAmount",
+        "internalType": "uint256"
+      },
+      {
+        "type": "int256",
+        "name": "rewardsDebt",
+        "internalType": "int256"
+      }
+    ],
+    "stateMutability": "view"
+  },
+  {
+    "type": "function",
+    "name": "claimEARTHLINGS",
+    "inputs": [
+      {
+        "type": "uint256[]",
+        "name": "_nfts",
+        "internalType": "uint256[]"
+      },
+      {
+        "type": "address",
+        "name": "_recipient",
+        "internalType": "address"
+      }
+    ],
+    "outputs": [],
+    "stateMutability": "nonpayable"
+  },
+  {
+    "type": "function",
+    "name": "claimNFW3C",
+    "inputs": [
+      {
+        "type": "tuple[]",
+        "name": "_EARTHLINGSPairs",
+        "components": [
           {
-            components: [
-              { internalType: "uint256", name: "mainTokenId", type: "uint256" },
+            "type": "uint128",
+            "name": "mainTokenId",
+            "internalType": "uint128"
+          },
+          {
+            "type": "uint128",
+            "name": "NFW3CTokenId",
+            "internalType": "uint128"
+          }
+        ],
+        "internalType": "struct NFTEarthStaking.PairNft[]"
+      },
+      {
+        "type": "tuple[]",
+        "name": "_ROBOROVERSPairs",
+        "components": [
+          {
+            "type": "uint128",
+            "name": "mainTokenId",
+            "internalType": "uint128"
+          },
+          {
+            "type": "uint128",
+            "name": "NFW3CTokenId",
+            "internalType": "uint128"
+          }
+        ],
+        "internalType": "struct NFTEarthStaking.PairNft[]"
+      },
+      {
+        "type": "address",
+        "name": "_recipient",
+        "internalType": "address"
+      }
+    ],
+    "outputs": [],
+    "stateMutability": "nonpayable"
+  },
+  {
+    "type": "function",
+    "name": "claimNfteToken",
+    "inputs": [
+      {
+        "type": "address",
+        "name": "_recipient",
+        "internalType": "address"
+      }
+    ],
+    "outputs": [],
+    "stateMutability": "nonpayable"
+  },
+  {
+    "type": "function",
+    "name": "claimROBOROVERS",
+    "inputs": [
+      {
+        "type": "uint256[]",
+        "name": "_nfts",
+        "internalType": "uint256[]"
+      },
+      {
+        "type": "address",
+        "name": "_recipient",
+        "internalType": "address"
+      }
+    ],
+    "outputs": [],
+    "stateMutability": "nonpayable"
+  },
+  {
+    "type": "function",
+    "name": "claimSelfEARTHLINGS",
+    "inputs": [
+      {
+        "type": "uint256[]",
+        "name": "_nfts",
+        "internalType": "uint256[]"
+      }
+    ],
+    "outputs": [],
+    "stateMutability": "nonpayable"
+  },
+  {
+    "type": "function",
+    "name": "claimSelfNFW3C",
+    "inputs": [
+      {
+        "type": "tuple[]",
+        "name": "_EARTHLINGSPairs",
+        "components": [
+          {
+            "type": "uint128",
+            "name": "mainTokenId",
+            "internalType": "uint128"
+          },
+          {
+            "type": "uint128",
+            "name": "NFW3CTokenId",
+            "internalType": "uint128"
+          }
+        ],
+        "internalType": "struct NFTEarthStaking.PairNft[]"
+      },
+      {
+        "type": "tuple[]",
+        "name": "_ROBOROVERSPairs",
+        "components": [
+          {
+            "type": "uint128",
+            "name": "mainTokenId",
+            "internalType": "uint128"
+          },
+          {
+            "type": "uint128",
+            "name": "NFW3CTokenId",
+            "internalType": "uint128"
+          }
+        ],
+        "internalType": "struct NFTEarthStaking.PairNft[]"
+      }
+    ],
+    "outputs": [],
+    "stateMutability": "nonpayable"
+  },
+  {
+    "type": "function",
+    "name": "claimSelfNfteToken",
+    "inputs": [],
+    "outputs": [],
+    "stateMutability": "nonpayable"
+  },
+  {
+    "type": "function",
+    "name": "claimSelfROBOROVERS",
+    "inputs": [
+      {
+        "type": "uint256[]",
+        "name": "_nfts",
+        "internalType": "uint256[]"
+      }
+    ],
+    "outputs": [],
+    "stateMutability": "nonpayable"
+  },
+  {
+    "type": "function",
+    "name": "depositEARTHLINGS",
+    "inputs": [
+      {
+        "type": "tuple[]",
+        "name": "_nfts",
+        "components": [
+          {
+            "type": "uint32",
+            "name": "tokenId",
+            "internalType": "uint32"
+          },
+          {
+            "type": "uint224",
+            "name": "amount",
+            "internalType": "uint224"
+          }
+        ],
+        "internalType": "struct NFTEarthStaking.SingleNft[]"
+      }
+    ],
+    "outputs": [],
+    "stateMutability": "nonpayable"
+  },
+  {
+    "type": "function",
+    "name": "depositNFW3C",
+    "inputs": [
+      {
+        "type": "tuple[]",
+        "name": "_EARTHLINGSPairs",
+        "components": [
+          {
+            "type": "uint32",
+            "name": "mainTokenId",
+            "internalType": "uint32"
+          },
+          {
+            "type": "uint32",
+            "name": "NFW3CTokenId",
+            "internalType": "uint32"
+          },
+          {
+            "type": "uint184",
+            "name": "amount",
+            "internalType": "uint184"
+          }
+        ],
+        "internalType": "struct NFTEarthStaking.PairNftDepositWithAmount[]"
+      },
+      {
+        "type": "tuple[]",
+        "name": "_ROBOROVERSPairs",
+        "components": [
+          {
+            "type": "uint32",
+            "name": "mainTokenId",
+            "internalType": "uint32"
+          },
+          {
+            "type": "uint32",
+            "name": "NFW3CTokenId",
+            "internalType": "uint32"
+          },
+          {
+            "type": "uint184",
+            "name": "amount",
+            "internalType": "uint184"
+          }
+        ],
+        "internalType": "struct NFTEarthStaking.PairNftDepositWithAmount[]"
+      }
+    ],
+    "outputs": [],
+    "stateMutability": "nonpayable"
+  },
+  {
+    "type": "function",
+    "name": "depositNfteToken",
+    "inputs": [
+      {
+        "type": "uint256",
+        "name": "_amount",
+        "internalType": "uint256"
+      },
+      {
+        "type": "address",
+        "name": "_recipient",
+        "internalType": "address"
+      }
+    ],
+    "outputs": [],
+    "stateMutability": "nonpayable"
+  },
+  {
+    "type": "function",
+    "name": "depositROBOROVERS",
+    "inputs": [
+      {
+        "type": "tuple[]",
+        "name": "_nfts",
+        "components": [
+          {
+            "type": "uint32",
+            "name": "tokenId",
+            "internalType": "uint32"
+          },
+          {
+            "type": "uint224",
+            "name": "amount",
+            "internalType": "uint224"
+          }
+        ],
+        "internalType": "struct NFTEarthStaking.SingleNft[]"
+      }
+    ],
+    "outputs": [],
+    "stateMutability": "nonpayable"
+  },
+  {
+    "type": "function",
+    "name": "depositSelfNfteToken",
+    "inputs": [
+      {
+        "type": "uint256",
+        "name": "_amount",
+        "internalType": "uint256"
+      }
+    ],
+    "outputs": [],
+    "stateMutability": "nonpayable"
+  },
+  {
+    "type": "function",
+    "name": "getAllStakes",
+    "inputs": [
+      {
+        "type": "address",
+        "name": "_address",
+        "internalType": "address"
+      }
+    ],
+    "outputs": [
+      {
+        "type": "tuple[]",
+        "name": "",
+        "components": [
+          {
+            "type": "uint256",
+            "name": "poolId",
+            "internalType": "uint256"
+          },
+          {
+            "type": "uint256",
+            "name": "tokenId",
+            "internalType": "uint256"
+          },
+          {
+            "type": "uint256",
+            "name": "deposited",
+            "internalType": "uint256"
+          },
+          {
+            "type": "uint256",
+            "name": "unclaimed",
+            "internalType": "uint256"
+          },
+          {
+            "type": "uint256",
+            "name": "rewards24hr",
+            "internalType": "uint256"
+          },
+          {
+            "type": "tuple",
+            "name": "pair",
+            "components": [
               {
-                internalType: "uint256",
-                name: "mainTypePoolId",
-                type: "uint256",
+                "internalType": "uint256",
+                "name": "mainTokenId",
+                "type": "uint256"
               },
+              {
+                "internalType": "uint256",
+                "name": "mainTypePoolId",
+                "type": "uint256"
+              }
             ],
-            internalType: "struct ApeCoinStaking.DashboardPair",
-            name: "pair",
-            type: "tuple",
-          },
+            "internalType": "struct NFTEarthStaking.DashboardPair"
+          }
         ],
-        internalType: "struct ApeCoinStaking.DashboardStake[]",
-        name: "",
-        type: "tuple[]",
-      },
+        "internalType": "struct NFTEarthStaking.DashboardStake[]"
+      }
     ],
-    stateMutability: "view",
-    type: "function",
+    "stateMutability": "view"
   },
   {
-    inputs: [{ internalType: "address", name: "_address", type: "address" }],
-    name: "getApeCoinStake",
-    outputs: [
+    "type": "function",
+    "name": "getEARTHLINGSStakes",
+    "inputs": [
       {
-        components: [
-          { internalType: "uint256", name: "poolId", type: "uint256" },
-          { internalType: "uint256", name: "tokenId", type: "uint256" },
-          { internalType: "uint256", name: "deposited", type: "uint256" },
-          { internalType: "uint256", name: "unclaimed", type: "uint256" },
-          { internalType: "uint256", name: "rewards24hr", type: "uint256" },
+        "type": "address",
+        "name": "_address",
+        "internalType": "address"
+      }
+    ],
+    "outputs": [
+      {
+        "type": "tuple[]",
+        "name": "",
+        "components": [
           {
-            components: [
-              { internalType: "uint256", name: "mainTokenId", type: "uint256" },
+            "type": "uint256",
+            "name": "poolId",
+            "internalType": "uint256"
+          },
+          {
+            "type": "uint256",
+            "name": "tokenId",
+            "internalType": "uint256"
+          },
+          {
+            "type": "uint256",
+            "name": "deposited",
+            "internalType": "uint256"
+          },
+          {
+            "type": "uint256",
+            "name": "unclaimed",
+            "internalType": "uint256"
+          },
+          {
+            "type": "uint256",
+            "name": "rewards24hr",
+            "internalType": "uint256"
+          },
+          {
+            "type": "tuple",
+            "name": "pair",
+            "components": [
               {
-                internalType: "uint256",
-                name: "mainTypePoolId",
-                type: "uint256",
+                "internalType": "uint256",
+                "name": "mainTokenId",
+                "type": "uint256"
               },
+              {
+                "internalType": "uint256",
+                "name": "mainTypePoolId",
+                "type": "uint256"
+              }
             ],
-            internalType: "struct ApeCoinStaking.DashboardPair",
-            name: "pair",
-            type: "tuple",
-          },
+            "internalType": "struct NFTEarthStaking.DashboardPair"
+          }
         ],
-        internalType: "struct ApeCoinStaking.DashboardStake",
-        name: "",
-        type: "tuple",
-      },
+        "internalType": "struct NFTEarthStaking.DashboardStake[]"
+      }
     ],
-    stateMutability: "view",
-    type: "function",
+    "stateMutability": "view"
   },
   {
-    inputs: [{ internalType: "address", name: "_address", type: "address" }],
-    name: "getBakcStakes",
-    outputs: [
+    "type": "function",
+    "name": "getNFW3CStakes",
+    "inputs": [
       {
-        components: [
-          { internalType: "uint256", name: "poolId", type: "uint256" },
-          { internalType: "uint256", name: "tokenId", type: "uint256" },
-          { internalType: "uint256", name: "deposited", type: "uint256" },
-          { internalType: "uint256", name: "unclaimed", type: "uint256" },
-          { internalType: "uint256", name: "rewards24hr", type: "uint256" },
+        "type": "address",
+        "name": "_address",
+        "internalType": "address"
+      }
+    ],
+    "outputs": [
+      {
+        "type": "tuple[]",
+        "name": "",
+        "components": [
           {
-            components: [
-              { internalType: "uint256", name: "mainTokenId", type: "uint256" },
+            "type": "uint256",
+            "name": "poolId",
+            "internalType": "uint256"
+          },
+          {
+            "type": "uint256",
+            "name": "tokenId",
+            "internalType": "uint256"
+          },
+          {
+            "type": "uint256",
+            "name": "deposited",
+            "internalType": "uint256"
+          },
+          {
+            "type": "uint256",
+            "name": "unclaimed",
+            "internalType": "uint256"
+          },
+          {
+            "type": "uint256",
+            "name": "rewards24hr",
+            "internalType": "uint256"
+          },
+          {
+            "type": "tuple",
+            "name": "pair",
+            "components": [
               {
-                internalType: "uint256",
-                name: "mainTypePoolId",
-                type: "uint256",
+                "internalType": "uint256",
+                "name": "mainTokenId",
+                "type": "uint256"
               },
+              {
+                "internalType": "uint256",
+                "name": "mainTypePoolId",
+                "type": "uint256"
+              }
             ],
-            internalType: "struct ApeCoinStaking.DashboardPair",
-            name: "pair",
-            type: "tuple",
-          },
+            "internalType": "struct NFTEarthStaking.DashboardPair"
+          }
         ],
-        internalType: "struct ApeCoinStaking.DashboardStake[]",
-        name: "",
-        type: "tuple[]",
-      },
+        "internalType": "struct NFTEarthStaking.DashboardStake[]"
+      }
     ],
-    stateMutability: "view",
-    type: "function",
+    "stateMutability": "view"
   },
   {
-    inputs: [{ internalType: "address", name: "_address", type: "address" }],
-    name: "getBaycStakes",
-    outputs: [
+    "type": "function",
+    "name": "getNfteTokenStake",
+    "inputs": [
       {
-        components: [
-          { internalType: "uint256", name: "poolId", type: "uint256" },
-          { internalType: "uint256", name: "tokenId", type: "uint256" },
-          { internalType: "uint256", name: "deposited", type: "uint256" },
-          { internalType: "uint256", name: "unclaimed", type: "uint256" },
-          { internalType: "uint256", name: "rewards24hr", type: "uint256" },
+        "type": "address",
+        "name": "_address",
+        "internalType": "address"
+      }
+    ],
+    "outputs": [
+      {
+        "type": "tuple",
+        "name": "",
+        "components": [
           {
-            components: [
-              { internalType: "uint256", name: "mainTokenId", type: "uint256" },
+            "type": "uint256",
+            "name": "poolId",
+            "internalType": "uint256"
+          },
+          {
+            "type": "uint256",
+            "name": "tokenId",
+            "internalType": "uint256"
+          },
+          {
+            "type": "uint256",
+            "name": "deposited",
+            "internalType": "uint256"
+          },
+          {
+            "type": "uint256",
+            "name": "unclaimed",
+            "internalType": "uint256"
+          },
+          {
+            "type": "uint256",
+            "name": "rewards24hr",
+            "internalType": "uint256"
+          },
+          {
+            "type": "tuple",
+            "name": "pair",
+            "components": [
               {
-                internalType: "uint256",
-                name: "mainTypePoolId",
-                type: "uint256",
+                "internalType": "uint256",
+                "name": "mainTokenId",
+                "type": "uint256"
               },
+              {
+                "internalType": "uint256",
+                "name": "mainTypePoolId",
+                "type": "uint256"
+              }
             ],
-            internalType: "struct ApeCoinStaking.DashboardPair",
-            name: "pair",
-            type: "tuple",
-          },
+            "internalType": "struct NFTEarthStaking.DashboardPair"
+          }
         ],
-        internalType: "struct ApeCoinStaking.DashboardStake[]",
-        name: "",
-        type: "tuple[]",
-      },
+        "internalType": "struct NFTEarthStaking.DashboardStake"
+      }
     ],
-    stateMutability: "view",
-    type: "function",
+    "stateMutability": "view"
   },
   {
-    inputs: [{ internalType: "address", name: "_address", type: "address" }],
-    name: "getMaycStakes",
-    outputs: [
+    "type": "function",
+    "name": "getPoolsUI",
+    "inputs": [],
+    "outputs": [
       {
-        components: [
-          { internalType: "uint256", name: "poolId", type: "uint256" },
-          { internalType: "uint256", name: "tokenId", type: "uint256" },
-          { internalType: "uint256", name: "deposited", type: "uint256" },
-          { internalType: "uint256", name: "unclaimed", type: "uint256" },
-          { internalType: "uint256", name: "rewards24hr", type: "uint256" },
+        "type": "tuple",
+        "name": "",
+        "components": [
           {
-            components: [
-              { internalType: "uint256", name: "mainTokenId", type: "uint256" },
+            "type": "uint256",
+            "name": "poolId",
+            "internalType": "uint256"
+          },
+          {
+            "type": "uint256",
+            "name": "stakedAmount",
+            "internalType": "uint256"
+          },
+          {
+            "type": "tuple",
+            "name": "currentTimeRange",
+            "components": [
               {
-                internalType: "uint256",
-                name: "mainTypePoolId",
-                type: "uint256",
+                "internalType": "uint48",
+                "name": "startTimestampHour",
+                "type": "uint48"
               },
+              {
+                "internalType": "uint48",
+                "name": "endTimestampHour",
+                "type": "uint48"
+              },
+              {
+                "internalType": "uint96",
+                "name": "rewardsPerHour",
+                "type": "uint96"
+              },
+              {
+                "internalType": "uint96",
+                "name": "capPerPosition",
+                "type": "uint96"
+              }
             ],
-            internalType: "struct ApeCoinStaking.DashboardPair",
-            name: "pair",
-            type: "tuple",
-          },
+            "internalType": "struct NFTEarthStaking.TimeRange"
+          }
         ],
-        internalType: "struct ApeCoinStaking.DashboardStake[]",
-        name: "",
-        type: "tuple[]",
+        "internalType": "struct NFTEarthStaking.PoolUI"
       },
-    ],
-    stateMutability: "view",
-    type: "function",
-  },
-  {
-    inputs: [],
-    name: "getPoolsUI",
-    outputs: [
       {
-        components: [
-          { internalType: "uint256", name: "poolId", type: "uint256" },
-          { internalType: "uint256", name: "stakedAmount", type: "uint256" },
+        "type": "tuple",
+        "name": "",
+        "components": [
           {
-            components: [
+            "type": "uint256",
+            "name": "poolId",
+            "internalType": "uint256"
+          },
+          {
+            "type": "uint256",
+            "name": "stakedAmount",
+            "internalType": "uint256"
+          },
+          {
+            "type": "tuple",
+            "name": "currentTimeRange",
+            "components": [
               {
-                internalType: "uint48",
-                name: "startTimestampHour",
-                type: "uint48",
+                "internalType": "uint48",
+                "name": "startTimestampHour",
+                "type": "uint48"
               },
               {
-                internalType: "uint48",
-                name: "endTimestampHour",
-                type: "uint48",
+                "internalType": "uint48",
+                "name": "endTimestampHour",
+                "type": "uint48"
               },
               {
-                internalType: "uint96",
-                name: "rewardsPerHour",
-                type: "uint96",
+                "internalType": "uint96",
+                "name": "rewardsPerHour",
+                "type": "uint96"
               },
               {
-                internalType: "uint96",
-                name: "capPerPosition",
-                type: "uint96",
-              },
+                "internalType": "uint96",
+                "name": "capPerPosition",
+                "type": "uint96"
+              }
             ],
-            internalType: "struct ApeCoinStaking.TimeRange",
-            name: "currentTimeRange",
-            type: "tuple",
-          },
+            "internalType": "struct NFTEarthStaking.TimeRange"
+          }
         ],
-        internalType: "struct ApeCoinStaking.PoolUI",
-        name: "",
-        type: "tuple",
+        "internalType": "struct NFTEarthStaking.PoolUI"
       },
       {
-        components: [
-          { internalType: "uint256", name: "poolId", type: "uint256" },
-          { internalType: "uint256", name: "stakedAmount", type: "uint256" },
+        "type": "tuple",
+        "name": "",
+        "components": [
           {
-            components: [
+            "type": "uint256",
+            "name": "poolId",
+            "internalType": "uint256"
+          },
+          {
+            "type": "uint256",
+            "name": "stakedAmount",
+            "internalType": "uint256"
+          },
+          {
+            "type": "tuple",
+            "name": "currentTimeRange",
+            "components": [
               {
-                internalType: "uint48",
-                name: "startTimestampHour",
-                type: "uint48",
+                "internalType": "uint48",
+                "name": "startTimestampHour",
+                "type": "uint48"
               },
               {
-                internalType: "uint48",
-                name: "endTimestampHour",
-                type: "uint48",
+                "internalType": "uint48",
+                "name": "endTimestampHour",
+                "type": "uint48"
               },
               {
-                internalType: "uint96",
-                name: "rewardsPerHour",
-                type: "uint96",
+                "internalType": "uint96",
+                "name": "rewardsPerHour",
+                "type": "uint96"
               },
               {
-                internalType: "uint96",
-                name: "capPerPosition",
-                type: "uint96",
-              },
+                "internalType": "uint96",
+                "name": "capPerPosition",
+                "type": "uint96"
+              }
             ],
-            internalType: "struct ApeCoinStaking.TimeRange",
-            name: "currentTimeRange",
-            type: "tuple",
-          },
+            "internalType": "struct NFTEarthStaking.TimeRange"
+          }
         ],
-        internalType: "struct ApeCoinStaking.PoolUI",
-        name: "",
-        type: "tuple",
+        "internalType": "struct NFTEarthStaking.PoolUI"
       },
       {
-        components: [
-          { internalType: "uint256", name: "poolId", type: "uint256" },
-          { internalType: "uint256", name: "stakedAmount", type: "uint256" },
+        "type": "tuple",
+        "name": "",
+        "components": [
           {
-            components: [
+            "type": "uint256",
+            "name": "poolId",
+            "internalType": "uint256"
+          },
+          {
+            "type": "uint256",
+            "name": "stakedAmount",
+            "internalType": "uint256"
+          },
+          {
+            "type": "tuple",
+            "name": "currentTimeRange",
+            "components": [
               {
-                internalType: "uint48",
-                name: "startTimestampHour",
-                type: "uint48",
+                "internalType": "uint48",
+                "name": "startTimestampHour",
+                "type": "uint48"
               },
               {
-                internalType: "uint48",
-                name: "endTimestampHour",
-                type: "uint48",
+                "internalType": "uint48",
+                "name": "endTimestampHour",
+                "type": "uint48"
               },
               {
-                internalType: "uint96",
-                name: "rewardsPerHour",
-                type: "uint96",
+                "internalType": "uint96",
+                "name": "rewardsPerHour",
+                "type": "uint96"
               },
               {
-                internalType: "uint96",
-                name: "capPerPosition",
-                type: "uint96",
-              },
+                "internalType": "uint96",
+                "name": "capPerPosition",
+                "type": "uint96"
+              }
             ],
-            internalType: "struct ApeCoinStaking.TimeRange",
-            name: "currentTimeRange",
-            type: "tuple",
-          },
+            "internalType": "struct NFTEarthStaking.TimeRange"
+          }
         ],
-        internalType: "struct ApeCoinStaking.PoolUI",
-        name: "",
-        type: "tuple",
-      },
+        "internalType": "struct NFTEarthStaking.PoolUI"
+      }
+    ],
+    "stateMutability": "view"
+  },
+  {
+    "type": "function",
+    "name": "getROBOROVERSStakes",
+    "inputs": [
       {
-        components: [
-          { internalType: "uint256", name: "poolId", type: "uint256" },
-          { internalType: "uint256", name: "stakedAmount", type: "uint256" },
+        "type": "address",
+        "name": "_address",
+        "internalType": "address"
+      }
+    ],
+    "outputs": [
+      {
+        "type": "tuple[]",
+        "name": "",
+        "components": [
           {
-            components: [
+            "type": "uint256",
+            "name": "poolId",
+            "internalType": "uint256"
+          },
+          {
+            "type": "uint256",
+            "name": "tokenId",
+            "internalType": "uint256"
+          },
+          {
+            "type": "uint256",
+            "name": "deposited",
+            "internalType": "uint256"
+          },
+          {
+            "type": "uint256",
+            "name": "unclaimed",
+            "internalType": "uint256"
+          },
+          {
+            "type": "uint256",
+            "name": "rewards24hr",
+            "internalType": "uint256"
+          },
+          {
+            "type": "tuple",
+            "name": "pair",
+            "components": [
               {
-                internalType: "uint48",
-                name: "startTimestampHour",
-                type: "uint48",
+                "internalType": "uint256",
+                "name": "mainTokenId",
+                "type": "uint256"
               },
               {
-                internalType: "uint48",
-                name: "endTimestampHour",
-                type: "uint48",
-              },
-              {
-                internalType: "uint96",
-                name: "rewardsPerHour",
-                type: "uint96",
-              },
-              {
-                internalType: "uint96",
-                name: "capPerPosition",
-                type: "uint96",
-              },
+                "internalType": "uint256",
+                "name": "mainTypePoolId",
+                "type": "uint256"
+              }
             ],
-            internalType: "struct ApeCoinStaking.TimeRange",
-            name: "currentTimeRange",
-            type: "tuple",
-          },
+            "internalType": "struct NFTEarthStaking.DashboardPair"
+          }
         ],
-        internalType: "struct ApeCoinStaking.PoolUI",
-        name: "",
-        type: "tuple",
-      },
+        "internalType": "struct NFTEarthStaking.DashboardStake[]"
+      }
     ],
-    stateMutability: "view",
-    type: "function",
+    "stateMutability": "view"
   },
   {
-    inputs: [{ internalType: "address", name: "_address", type: "address" }],
-    name: "getSplitStakes",
-    outputs: [
+    "type": "function",
+    "name": "getSplitStakes",
+    "inputs": [
       {
-        components: [
-          { internalType: "uint256", name: "poolId", type: "uint256" },
-          { internalType: "uint256", name: "tokenId", type: "uint256" },
-          { internalType: "uint256", name: "deposited", type: "uint256" },
-          { internalType: "uint256", name: "unclaimed", type: "uint256" },
-          { internalType: "uint256", name: "rewards24hr", type: "uint256" },
+        "type": "address",
+        "name": "_address",
+        "internalType": "address"
+      }
+    ],
+    "outputs": [
+      {
+        "type": "tuple[]",
+        "name": "",
+        "components": [
           {
-            components: [
-              { internalType: "uint256", name: "mainTokenId", type: "uint256" },
+            "type": "uint256",
+            "name": "poolId",
+            "internalType": "uint256"
+          },
+          {
+            "type": "uint256",
+            "name": "tokenId",
+            "internalType": "uint256"
+          },
+          {
+            "type": "uint256",
+            "name": "deposited",
+            "internalType": "uint256"
+          },
+          {
+            "type": "uint256",
+            "name": "unclaimed",
+            "internalType": "uint256"
+          },
+          {
+            "type": "uint256",
+            "name": "rewards24hr",
+            "internalType": "uint256"
+          },
+          {
+            "type": "tuple",
+            "name": "pair",
+            "components": [
               {
-                internalType: "uint256",
-                name: "mainTypePoolId",
-                type: "uint256",
+                "internalType": "uint256",
+                "name": "mainTokenId",
+                "type": "uint256"
               },
+              {
+                "internalType": "uint256",
+                "name": "mainTypePoolId",
+                "type": "uint256"
+              }
             ],
-            internalType: "struct ApeCoinStaking.DashboardPair",
-            name: "pair",
-            type: "tuple",
-          },
+            "internalType": "struct NFTEarthStaking.DashboardPair"
+          }
         ],
-        internalType: "struct ApeCoinStaking.DashboardStake[]",
-        name: "",
-        type: "tuple[]",
-      },
+        "internalType": "struct NFTEarthStaking.DashboardStake[]"
+      }
     ],
-    stateMutability: "view",
-    type: "function",
+    "stateMutability": "view"
   },
   {
-    inputs: [
-      { internalType: "uint256", name: "_poolId", type: "uint256" },
-      { internalType: "uint256", name: "_index", type: "uint256" },
-    ],
-    name: "getTimeRangeBy",
-    outputs: [
+    "type": "function",
+    "name": "getTimeRangeBy",
+    "inputs": [
       {
-        components: [
+        "type": "uint256",
+        "name": "_poolId",
+        "internalType": "uint256"
+      },
+      {
+        "type": "uint256",
+        "name": "_index",
+        "internalType": "uint256"
+      }
+    ],
+    "outputs": [
+      {
+        "type": "tuple",
+        "name": "",
+        "components": [
           {
-            internalType: "uint48",
-            name: "startTimestampHour",
-            type: "uint48",
+            "type": "uint48",
+            "name": "startTimestampHour",
+            "internalType": "uint48"
           },
-          { internalType: "uint48", name: "endTimestampHour", type: "uint48" },
-          { internalType: "uint96", name: "rewardsPerHour", type: "uint96" },
-          { internalType: "uint96", name: "capPerPosition", type: "uint96" },
+          {
+            "type": "uint48",
+            "name": "endTimestampHour",
+            "internalType": "uint48"
+          },
+          {
+            "type": "uint96",
+            "name": "rewardsPerHour",
+            "internalType": "uint96"
+          },
+          {
+            "type": "uint96",
+            "name": "capPerPosition",
+            "internalType": "uint96"
+          }
         ],
-        internalType: "struct ApeCoinStaking.TimeRange",
-        name: "",
-        type: "tuple",
-      },
+        "internalType": "struct NFTEarthStaking.TimeRange"
+      }
     ],
-    stateMutability: "view",
-    type: "function",
+    "stateMutability": "view"
   },
   {
-    inputs: [
-      { internalType: "uint256", name: "", type: "uint256" },
-      { internalType: "uint256", name: "", type: "uint256" },
-    ],
-    name: "mainToBakc",
-    outputs: [
-      { internalType: "uint248", name: "tokenId", type: "uint248" },
-      { internalType: "bool", name: "isPaired", type: "bool" },
-    ],
-    stateMutability: "view",
-    type: "function",
-  },
-  {
-    inputs: [{ internalType: "uint256", name: "", type: "uint256" }],
-    name: "nftContracts",
-    outputs: [
-      { internalType: "contract ERC721Enumerable", name: "", type: "address" },
-    ],
-    stateMutability: "view",
-    type: "function",
-  },
-  {
-    inputs: [
-      { internalType: "uint256", name: "", type: "uint256" },
-      { internalType: "uint256", name: "", type: "uint256" },
-    ],
-    name: "nftPosition",
-    outputs: [
-      { internalType: "uint256", name: "stakedAmount", type: "uint256" },
-      { internalType: "int256", name: "rewardsDebt", type: "int256" },
-    ],
-    stateMutability: "view",
-    type: "function",
-  },
-  {
-    inputs: [],
-    name: "owner",
-    outputs: [{ internalType: "address", name: "", type: "address" }],
-    stateMutability: "view",
-    type: "function",
-  },
-  {
-    inputs: [
-      { internalType: "uint256", name: "_poolId", type: "uint256" },
-      { internalType: "address", name: "_address", type: "address" },
-      { internalType: "uint256", name: "_tokenId", type: "uint256" },
-    ],
-    name: "pendingRewards",
-    outputs: [{ internalType: "uint256", name: "", type: "uint256" }],
-    stateMutability: "view",
-    type: "function",
-  },
-  {
-    inputs: [{ internalType: "uint256", name: "", type: "uint256" }],
-    name: "pools",
-    outputs: [
+    "type": "function",
+    "name": "mainToNFW3C",
+    "inputs": [
       {
-        internalType: "uint48",
-        name: "lastRewardedTimestampHour",
-        type: "uint48",
+        "type": "uint256",
+        "name": "",
+        "internalType": "uint256"
       },
-      { internalType: "uint16", name: "lastRewardsRangeIndex", type: "uint16" },
-      { internalType: "uint96", name: "stakedAmount", type: "uint96" },
       {
-        internalType: "uint96",
-        name: "accumulatedRewardsPerShare",
-        type: "uint96",
+        "type": "uint256",
+        "name": "",
+        "internalType": "uint256"
+      }
+    ],
+    "outputs": [
+      {
+        "type": "uint248",
+        "name": "tokenId",
+        "internalType": "uint248"
       },
-    ],
-    stateMutability: "view",
-    type: "function",
-  },
-  {
-    inputs: [{ internalType: "uint256", name: "_poolId", type: "uint256" }],
-    name: "removeLastTimeRange",
-    outputs: [],
-    stateMutability: "nonpayable",
-    type: "function",
-  },
-  {
-    inputs: [],
-    name: "renounceOwnership",
-    outputs: [],
-    stateMutability: "nonpayable",
-    type: "function",
-  },
-  {
-    inputs: [
-      { internalType: "uint256", name: "_poolId", type: "uint256" },
-      { internalType: "uint256", name: "_from", type: "uint256" },
-      { internalType: "uint256", name: "_to", type: "uint256" },
-    ],
-    name: "rewardsBy",
-    outputs: [
-      { internalType: "uint256", name: "", type: "uint256" },
-      { internalType: "uint256", name: "", type: "uint256" },
-    ],
-    stateMutability: "view",
-    type: "function",
-  },
-  {
-    inputs: [{ internalType: "address", name: "_address", type: "address" }],
-    name: "stakedTotal",
-    outputs: [{ internalType: "uint256", name: "", type: "uint256" }],
-    stateMutability: "view",
-    type: "function",
-  },
-  {
-    inputs: [{ internalType: "address", name: "newOwner", type: "address" }],
-    name: "transferOwnership",
-    outputs: [],
-    stateMutability: "nonpayable",
-    type: "function",
-  },
-  {
-    inputs: [{ internalType: "uint256", name: "_poolId", type: "uint256" }],
-    name: "updatePool",
-    outputs: [],
-    stateMutability: "nonpayable",
-    type: "function",
-  },
-  {
-    inputs: [
-      { internalType: "uint256", name: "_amount", type: "uint256" },
-      { internalType: "address", name: "_recipient", type: "address" },
-    ],
-    name: "withdrawApeCoin",
-    outputs: [],
-    stateMutability: "nonpayable",
-    type: "function",
-  },
-  {
-    inputs: [
       {
-        components: [
-          { internalType: "uint32", name: "mainTokenId", type: "uint32" },
-          { internalType: "uint32", name: "bakcTokenId", type: "uint32" },
-          { internalType: "uint184", name: "amount", type: "uint184" },
-          { internalType: "bool", name: "isUncommit", type: "bool" },
+        "type": "bool",
+        "name": "isPaired",
+        "internalType": "bool"
+      }
+    ],
+    "stateMutability": "view"
+  },
+  {
+    "type": "function",
+    "name": "nftContracts",
+    "inputs": [
+      {
+        "type": "uint256",
+        "name": "",
+        "internalType": "uint256"
+      }
+    ],
+    "outputs": [
+      {
+        "type": "address",
+        "name": "",
+        "internalType": "contract ERC721Enumerable"
+      }
+    ],
+    "stateMutability": "view"
+  },
+  {
+    "type": "function",
+    "name": "nftPosition",
+    "inputs": [
+      {
+        "type": "uint256",
+        "name": "",
+        "internalType": "uint256"
+      },
+      {
+        "type": "uint256",
+        "name": "",
+        "internalType": "uint256"
+      }
+    ],
+    "outputs": [
+      {
+        "type": "uint256",
+        "name": "stakedAmount",
+        "internalType": "uint256"
+      },
+      {
+        "type": "int256",
+        "name": "rewardsDebt",
+        "internalType": "int256"
+      }
+    ],
+    "stateMutability": "view"
+  },
+  {
+    "type": "function",
+    "name": "owner",
+    "inputs": [],
+    "outputs": [
+      {
+        "type": "address",
+        "name": "",
+        "internalType": "address"
+      }
+    ],
+    "stateMutability": "view"
+  },
+  {
+    "type": "function",
+    "name": "pendingRewards",
+    "inputs": [
+      {
+        "type": "uint256",
+        "name": "_poolId",
+        "internalType": "uint256"
+      },
+      {
+        "type": "address",
+        "name": "_address",
+        "internalType": "address"
+      },
+      {
+        "type": "uint256",
+        "name": "_tokenId",
+        "internalType": "uint256"
+      }
+    ],
+    "outputs": [
+      {
+        "type": "uint256",
+        "name": "",
+        "internalType": "uint256"
+      }
+    ],
+    "stateMutability": "view"
+  },
+  {
+    "type": "function",
+    "name": "pools",
+    "inputs": [
+      {
+        "type": "uint256",
+        "name": "",
+        "internalType": "uint256"
+      }
+    ],
+    "outputs": [
+      {
+        "type": "uint48",
+        "name": "lastRewardedTimestampHour",
+        "internalType": "uint48"
+      },
+      {
+        "type": "uint16",
+        "name": "lastRewardsRangeIndex",
+        "internalType": "uint16"
+      },
+      {
+        "type": "uint96",
+        "name": "stakedAmount",
+        "internalType": "uint96"
+      },
+      {
+        "type": "uint96",
+        "name": "accumulatedRewardsPerShare",
+        "internalType": "uint96"
+      }
+    ],
+    "stateMutability": "view"
+  },
+  {
+    "type": "function",
+    "name": "removeLastTimeRange",
+    "inputs": [
+      {
+        "type": "uint256",
+        "name": "_poolId",
+        "internalType": "uint256"
+      }
+    ],
+    "outputs": [],
+    "stateMutability": "nonpayable"
+  },
+  {
+    "type": "function",
+    "name": "renounceOwnership",
+    "inputs": [],
+    "outputs": [],
+    "stateMutability": "nonpayable"
+  },
+  {
+    "type": "function",
+    "name": "rewardsBy",
+    "inputs": [
+      {
+        "type": "uint256",
+        "name": "_poolId",
+        "internalType": "uint256"
+      },
+      {
+        "type": "uint256",
+        "name": "_from",
+        "internalType": "uint256"
+      },
+      {
+        "type": "uint256",
+        "name": "_to",
+        "internalType": "uint256"
+      }
+    ],
+    "outputs": [
+      {
+        "type": "uint256",
+        "name": "",
+        "internalType": "uint256"
+      },
+      {
+        "type": "uint256",
+        "name": "",
+        "internalType": "uint256"
+      }
+    ],
+    "stateMutability": "view"
+  },
+  {
+    "type": "function",
+    "name": "stakedTotal",
+    "inputs": [
+      {
+        "type": "address",
+        "name": "_address",
+        "internalType": "address"
+      }
+    ],
+    "outputs": [
+      {
+        "type": "uint256",
+        "name": "",
+        "internalType": "uint256"
+      }
+    ],
+    "stateMutability": "view"
+  },
+  {
+    "type": "function",
+    "name": "transferOwnership",
+    "inputs": [
+      {
+        "type": "address",
+        "name": "newOwner",
+        "internalType": "address"
+      }
+    ],
+    "outputs": [],
+    "stateMutability": "nonpayable"
+  },
+  {
+    "type": "function",
+    "name": "updatePool",
+    "inputs": [
+      {
+        "type": "uint256",
+        "name": "_poolId",
+        "internalType": "uint256"
+      }
+    ],
+    "outputs": [],
+    "stateMutability": "nonpayable"
+  },
+  {
+    "type": "function",
+    "name": "withdrawEARTHLINGS",
+    "inputs": [
+      {
+        "type": "tuple[]",
+        "name": "_nfts",
+        "components": [
+          {
+            "type": "uint32",
+            "name": "tokenId",
+            "internalType": "uint32"
+          },
+          {
+            "type": "uint224",
+            "name": "amount",
+            "internalType": "uint224"
+          }
         ],
-        internalType: "struct ApeCoinStaking.PairNftWithdrawWithAmount[]",
-        name: "_baycPairs",
-        type: "tuple[]",
+        "internalType": "struct NFTEarthStaking.SingleNft[]"
       },
       {
-        components: [
-          { internalType: "uint32", name: "mainTokenId", type: "uint32" },
-          { internalType: "uint32", name: "bakcTokenId", type: "uint32" },
-          { internalType: "uint184", name: "amount", type: "uint184" },
-          { internalType: "bool", name: "isUncommit", type: "bool" },
-        ],
-        internalType: "struct ApeCoinStaking.PairNftWithdrawWithAmount[]",
-        name: "_maycPairs",
-        type: "tuple[]",
-      },
+        "type": "address",
+        "name": "_recipient",
+        "internalType": "address"
+      }
     ],
-    name: "withdrawBAKC",
-    outputs: [],
-    stateMutability: "nonpayable",
-    type: "function",
+    "outputs": [],
+    "stateMutability": "nonpayable"
   },
   {
-    inputs: [
+    "type": "function",
+    "name": "withdrawNFW3C",
+    "inputs": [
       {
-        components: [
-          { internalType: "uint32", name: "tokenId", type: "uint32" },
-          { internalType: "uint224", name: "amount", type: "uint224" },
+        "type": "tuple[]",
+        "name": "_EARTHLINGSPairs",
+        "components": [
+          {
+            "type": "uint32",
+            "name": "mainTokenId",
+            "internalType": "uint32"
+          },
+          {
+            "type": "uint32",
+            "name": "NFW3CTokenId",
+            "internalType": "uint32"
+          },
+          {
+            "type": "uint184",
+            "name": "amount",
+            "internalType": "uint184"
+          },
+          {
+            "type": "bool",
+            "name": "isUncommit",
+            "internalType": "bool"
+          }
         ],
-        internalType: "struct ApeCoinStaking.SingleNft[]",
-        name: "_nfts",
-        type: "tuple[]",
+        "internalType": "struct NFTEarthStaking.PairNftWithdrawWithAmount[]"
       },
-      { internalType: "address", name: "_recipient", type: "address" },
-    ],
-    name: "withdrawBAYC",
-    outputs: [],
-    stateMutability: "nonpayable",
-    type: "function",
-  },
-  {
-    inputs: [
       {
-        components: [
-          { internalType: "uint32", name: "tokenId", type: "uint32" },
-          { internalType: "uint224", name: "amount", type: "uint224" },
+        "type": "tuple[]",
+        "name": "_ROBOROVERSPairs",
+        "components": [
+          {
+            "type": "uint32",
+            "name": "mainTokenId",
+            "internalType": "uint32"
+          },
+          {
+            "type": "uint32",
+            "name": "NFW3CTokenId",
+            "internalType": "uint32"
+          },
+          {
+            "type": "uint184",
+            "name": "amount",
+            "internalType": "uint184"
+          },
+          {
+            "type": "bool",
+            "name": "isUncommit",
+            "internalType": "bool"
+          }
         ],
-        internalType: "struct ApeCoinStaking.SingleNft[]",
-        name: "_nfts",
-        type: "tuple[]",
-      },
-      { internalType: "address", name: "_recipient", type: "address" },
+        "internalType": "struct NFTEarthStaking.PairNftWithdrawWithAmount[]"
+      }
     ],
-    name: "withdrawMAYC",
-    outputs: [],
-    stateMutability: "nonpayable",
-    type: "function",
+    "outputs": [],
+    "stateMutability": "nonpayable"
   },
   {
-    inputs: [{ internalType: "uint256", name: "_amount", type: "uint256" }],
-    name: "withdrawSelfApeCoin",
-    outputs: [],
-    stateMutability: "nonpayable",
-    type: "function",
-  },
-  {
-    inputs: [
+    "type": "function",
+    "name": "withdrawNfteToken",
+    "inputs": [
       {
-        components: [
-          { internalType: "uint32", name: "tokenId", type: "uint32" },
-          { internalType: "uint224", name: "amount", type: "uint224" },
-        ],
-        internalType: "struct ApeCoinStaking.SingleNft[]",
-        name: "_nfts",
-        type: "tuple[]",
+        "type": "uint256",
+        "name": "_amount",
+        "internalType": "uint256"
       },
+      {
+        "type": "address",
+        "name": "_recipient",
+        "internalType": "address"
+      }
     ],
-    name: "withdrawSelfBAYC",
-    outputs: [],
-    stateMutability: "nonpayable",
-    type: "function",
+    "outputs": [],
+    "stateMutability": "nonpayable"
   },
   {
-    inputs: [
+    "type": "function",
+    "name": "withdrawROBOROVERS",
+    "inputs": [
       {
-        components: [
-          { internalType: "uint32", name: "tokenId", type: "uint32" },
-          { internalType: "uint224", name: "amount", type: "uint224" },
+        "type": "tuple[]",
+        "name": "_nfts",
+        "components": [
+          {
+            "type": "uint32",
+            "name": "tokenId",
+            "internalType": "uint32"
+          },
+          {
+            "type": "uint224",
+            "name": "amount",
+            "internalType": "uint224"
+          }
         ],
-        internalType: "struct ApeCoinStaking.SingleNft[]",
-        name: "_nfts",
-        type: "tuple[]",
+        "internalType": "struct NFTEarthStaking.SingleNft[]"
       },
+      {
+        "type": "address",
+        "name": "_recipient",
+        "internalType": "address"
+      }
     ],
-    name: "withdrawSelfMAYC",
-    outputs: [],
-    stateMutability: "nonpayable",
-    type: "function",
+    "outputs": [],
+    "stateMutability": "nonpayable"
   },
+  {
+    "type": "function",
+    "name": "withdrawSelfEARTHLINGS",
+    "inputs": [
+      {
+        "type": "tuple[]",
+        "name": "_nfts",
+        "components": [
+          {
+            "type": "uint32",
+            "name": "tokenId",
+            "internalType": "uint32"
+          },
+          {
+            "type": "uint224",
+            "name": "amount",
+            "internalType": "uint224"
+          }
+        ],
+        "internalType": "struct NFTEarthStaking.SingleNft[]"
+      }
+    ],
+    "outputs": [],
+    "stateMutability": "nonpayable"
+  },
+  {
+    "type": "function",
+    "name": "withdrawSelfNfteToken",
+    "inputs": [
+      {
+        "type": "uint256",
+        "name": "_amount",
+        "internalType": "uint256"
+      }
+    ],
+    "outputs": [],
+    "stateMutability": "nonpayable"
+  },
+  {
+    "type": "function",
+    "name": "withdrawSelfROBOROVERS",
+    "inputs": [
+      {
+        "type": "tuple[]",
+        "name": "_nfts",
+        "components": [
+          {
+            "type": "uint32",
+            "name": "tokenId",
+            "internalType": "uint32"
+          },
+          {
+            "type": "uint224",
+            "name": "amount",
+            "internalType": "uint224"
+          }
+        ],
+        "internalType": "struct NFTEarthStaking.SingleNft[]"
+      }
+    ],
+    "outputs": [],
+    "stateMutability": "nonpayable"
+  }
 ] as const;
 
 export default ABI;
